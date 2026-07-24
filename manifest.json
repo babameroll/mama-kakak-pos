@@ -1,0 +1,24 @@
+{
+  "name": "Mama & Kakak Kafe POS",
+  "short_name": "Cafe POS",
+  "description": "POS System for Mama & Kakak Kafe",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fffdfa",
+  "theme_color": "#6b4226",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
