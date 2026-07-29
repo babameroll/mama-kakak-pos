@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Mama & Kakak Kafe POS</title>
   
-  <!-- ☕ INLINE FAVICON (Fixes the GET favicon.ico 404 error) -->
+  <!-- ☕ INLINE FAVICON -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
 
-  <!-- PWA Manifest Link -->
-  <link rel="manifest" href="manifest.json">
+  <!-- PWA Manifest Link (Added ?v=3 to force update) -->
+  <link rel="manifest" href="manifest.json?v=3">
   <meta name="theme-color" content="#6b4226">
 
-  <!-- 🟢 MODERN PWA APP SETTINGS (Fixes the deprecated meta tag warning) -->
+  <!-- 🟢 MODERN PWA APP SETTINGS -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Cafe POS">
-  <link rel="apple-touch-icon" href="icon-192-v2.png">
+  <!-- Added ?v=3 to force icon download -->
+  <link rel="apple-touch-icon" href="icon-192-v2.png?v=3">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,11 +36,15 @@
   ></iframe>
 
   <script>
-    // Register Service Worker for PWA
+    // Register Service Worker with cache buster query parameter
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
-          .then(reg => console.log('PWA Service Worker registered!', reg))
+        navigator.serviceWorker.register('sw.js?v=3')
+          .then(reg => {
+            console.log('PWA Service Worker registered!', reg);
+            // Force the service worker to update immediately
+            reg.update();
+          })
           .catch(err => console.error('Service Worker registration failed:', err));
       });
     }
