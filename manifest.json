@@ -1,6 +1,6 @@
 {
   "name": "Mama & Kakak Kafe POS",
-  "short_name": "Cafe POS",
+  "short_name": "M&K Kafe",
   "description": "POS System for Mama & Kakak Kafe",
   "start_url": "./index.html",
   "display": "standalone",
